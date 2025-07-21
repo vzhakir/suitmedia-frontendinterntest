@@ -19,7 +19,7 @@ const perPageSelect = document.getElementById('perPage');
 const sortSelect = document.getElementById('sort');
 const grid = document.getElementById('postGrid');
 const pagination = document.getElementById('pagination');
-const showingInfo = document.getElementById('showingInfo'); // ← Tambahkan ini
+const showingInfo = document.getElementById('showingInfo');
 
 function saveState() {
   localStorage.setItem('ideasState', JSON.stringify({
@@ -77,7 +77,7 @@ function renderPosts() {
     </div>
   `).join('');
 
-  updateShowingInfo(sorted.length); // ← Tambahkan ini
+  updateShowingInfo(sorted.length);
   renderPagination(sorted.length);
   saveState();
 }
@@ -118,7 +118,6 @@ sortSelect.addEventListener('change', () => {
   renderPosts();
 });
 
-// Parallax effect on scroll
 window.addEventListener('scroll', function () {
   const banner = document.querySelector(".hero-banner");
   const content = document.querySelector(".hero-content");
@@ -127,7 +126,6 @@ window.addEventListener('scroll', function () {
   content.style.transform = `translateY(${scroll * 0.2}px)`;
 });
 
-// Hide/show navbar on scroll
 let lastScrollTop = 0;
 const navbar = document.querySelector('.navbar');
 
@@ -135,11 +133,9 @@ window.addEventListener('scroll', function () {
   const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
   if (scrollTop > lastScrollTop) {
-    // Scroll ke bawah
     navbar.classList.add('hidden');
     navbar.classList.remove('transparent');
   } else {
-    // Scroll ke atas
     navbar.classList.remove('hidden');
 
     if (scrollTop > 50) {
@@ -152,7 +148,6 @@ window.addEventListener('scroll', function () {
   lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
 });
 
-// Highlight active nav link
 document.querySelectorAll('.nav-links a').forEach(link => {
   if (window.location.href.includes(link.getAttribute('href'))) {
     link.classList.add('active');
