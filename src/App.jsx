@@ -1,12 +1,11 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
-// Import komponen-komponen utama
+ 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
 // Import komponen halaman
-import Ideas from './pages/Ideas'; // Halaman yang sudah ada
+import Ideas from './pages/Ideas';
 import Work from './pages/Work';
 import About from './pages/About';
 import Services from './pages/Services';

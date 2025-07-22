@@ -133,11 +133,12 @@ body {
   object-fit: cover;
 }
 
-.card-meta {
-  padding: 10px;
+.cardMeta {
+  padding: 20px 10px;
+  text-align: center;
 }
 
-.card-meta .date {
+.cardMeta .date {
   font-size: 0.7rem;
   color: #999;
 }
