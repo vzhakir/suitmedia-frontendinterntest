@@ -1,55 +1,37 @@
-import React, { useState, useEffect, useMemo } from 'react';
-import HeroBanner from '../components/HeroBanner'; // Path import diperbaiki
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import HeroBanner from '../components/HeroBanner';
 import styles from './Ideas.module.css';
 
-// Mock data generation (can be moved to a separate file)
-const generatePosts = () => Array.from({ length: 100 }).map((_, i) => ({
-    id: i,
-    title: i % 2 === 0
-      ? 'Kenali Tingkatan Influencers berdasarkan Jumlah Followers'
-      : 'Jangan Asal Pilih Influencer, Berikut Cara Menyusun Strategi Influencer Marketing',
-    date: new Date(2023, 8, 5 + i),
-    image: `https://picsum.photos/seed/${i}/600/338`,
-  }));
-
-const allPosts = generatePosts();
-
 const Ideas = () => {
+  const [posts, setPosts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
   const [perPage, setPerPage] = useState(10);
   const [sortBy, setSortBy] = useState('newest');
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Restore state from localStorage
-    const savedState = JSON.parse(localStorage.getItem('ideasState'));
-    if (savedState) {
-      setCurrentPage(savedState.page || 1);
-      setPerPage(savedState.perPage || 10);
-      setSortBy(savedState.sort || 'newest');
-    }
-  }, []);
-
-  useEffect(() => {
-    // Save state to localStorage
-    localStorage.setItem('ideasState', JSON.stringify({
-      page: currentPage,
-      perPage,
-      sort: sortBy,
-    }));
+    const fetchData = async () => {
+      setLoading(true);
+      try {
+        const params = {
+          'page[number]': currentPage,
+          'page[size]': perPage,
+          'append[]': ['small_image', 'medium_image'],
+          sort: sortBy === 'newest' ? '-published_at' : 'published_at',
+        };
+        const response = await axios.get('/api/ideas', { params });
+        setPosts(response.data.data);
+        setTotalPages(response.data.meta.last_page);
+      } catch (error) {
+        console.error("Gagal mengambil data ideas:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchData();
   }, [currentPage, perPage, sortBy]);
-
-  const sortedPosts = useMemo(() => {
-    return [...allPosts].sort((a, b) => {
-      return sortBy === 'newest' ? b.date - a.date : a.date - b.date;
-    });
-  }, [sortBy]);
-
-  const paginatedPosts = useMemo(() => {
-    const start = (currentPage - 1) * perPage;
-    return sortedPosts.slice(start, start + perPage);
-  }, [currentPage, perPage, sortedPosts]);
-
-  const totalPages = Math.ceil(sortedPosts.length / perPage);
 
   const handlePerPageChange = (e) => {
     setPerPage(Number(e.target.value));
@@ -62,15 +44,15 @@ const Ideas = () => {
   };
 
   return (
-    <> {/* Menggunakan Fragment <> */}
-      <HeroBanner /> {/* Memanggil komponen HeroBanner */}
-
+    <>
+      <HeroBanner />
+      
       <div className={styles.controls}>
-        <div>Showing {(currentPage - 1) * perPage + 1}–{Math.min(currentPage * perPage, allPosts.length)} of {allPosts.length}</div>
+        {!loading && <div>Showing {posts.length} of many ideas</div>}
         <div className={styles.filterControls}>
           <div>
             Show per page:
-            <select value={perPage} onChange={handlePerPageChange}>
+            <select value={perPage} onChange={handlePerPageChange} disabled={loading}>
               <option value="10">10</option>
               <option value="20">20</option>
               <option value="50">50</option>
@@ -78,7 +60,7 @@ const Ideas = () => {
           </div>
           <div>
             Sort by:
-            <select value={sortBy} onChange={handleSortChange}>
+            <select value={sortBy} onChange={handleSortChange} disabled={loading}>
               <option value="newest">Newest</option>
               <option value="oldest">Oldest</option>
             </select>
@@ -86,17 +68,32 @@ const Ideas = () => {
         </div>
       </div>
 
-      <div className={styles.grid}>
-        {paginatedPosts.map(post => (
-          <div key={post.id} className={styles.card}>
-            <img src={post.image} alt={post.title} />
-            <div className={styles.cardMeta}>
-              <span className={styles.date}>{post.date.toDateString()}</span>
-              <h3 className={styles.cardTitle}>{post.title}</h3>
+      {loading ? (
+        <div style={{ textAlign: 'center', padding: '50px', fontSize: '18px' }}>Loading ideas...</div>
+      ) : (
+        <div className={styles.grid}>
+          {posts.map(post => (
+            <div key={post.id} className={styles.card}>
+            <img 
+                // Ganti baris 'src' ini
+                src={`https://picsum.photos/seed/${post.id}/600/400`} 
+                alt={post.title} 
+                className={styles.cardImage}
+                />
+              <div className={styles.cardMeta}>
+                <span className={styles.date}>
+                  {new Date(post.published_at).toLocaleDateString('id-ID', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                  })}
+                </span>
+                <h3 className={styles.cardTitle}>{post.title}</h3>
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
 
       <div className={styles.pagination}>
         {[...Array(totalPages).keys()].map(num => (
@@ -104,6 +101,7 @@ const Ideas = () => {
             key={num + 1}
             onClick={() => setCurrentPage(num + 1)}
             className={currentPage === num + 1 ? styles.active : ''}
+            disabled={loading}
           >
             {num + 1}
           </button>
