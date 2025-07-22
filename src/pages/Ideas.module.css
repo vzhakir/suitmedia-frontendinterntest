@@ -234,11 +234,6 @@ body {
     width: 100%;
     justify-content: space-between;
   }
-
-  .showingInfo {
-  display: none; /* Sembunyikan elemen ini di layar kecil */
-  }
-
 }
 
 @media (max-width: 480px) {

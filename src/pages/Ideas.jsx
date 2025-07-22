@@ -44,7 +44,6 @@ const Ideas = () => {
   const [posts, setPosts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const [totalItems, setTotalItems] = useState(0);
   const [perPage, setPerPage] = useState(10);
   const [sortBy, setSortBy] = useState('newest');
   const [loading, setLoading] = useState(true);
@@ -62,7 +61,6 @@ const Ideas = () => {
         const response = await axios.get('/api/ideas', { params });
         setPosts(response.data.data);
         setTotalPages(response.data.meta.last_page);
-        setTotalItems(response.data.meta.total);
       } catch (error) {
         console.error("Gagal mengambil data ideas:", error);
       } finally {
@@ -86,19 +84,14 @@ const Ideas = () => {
 
   return (
     <>
-      <HeroBanner 
-        imageUrl={bannerImage} 
-        title="Ideas" 
-        subtitle="Where all our great things begin" 
-      />
+        <HeroBanner 
+            imageUrl={bannerImage} 
+            title="Ideas" 
+            subtitle="Where all our great things begin" 
+        />
       
       <div className={styles.controls}>
-        {!loading && posts.length > 0 && (
-          <div className={styles.showingInfo}>
-            Showing {(currentPage - 1) * perPage + 1}–
-            {Math.min(currentPage * perPage, totalItems)} of {totalItems} ideas
-          </div>
-        )}
+        {!loading && <div>Showing {posts.length} of many ideas</div>}
         <div className={styles.filterControls}>
           <div>
             Show per page:
@@ -128,7 +121,6 @@ const Ideas = () => {
                 src={`https://picsum.photos/seed/${post.id}/600/400`} 
                 alt={post.title} 
                 className={styles.cardImage}
-                loading="lazy"
               />
               <div className={styles.cardMeta}>
                 <span className={styles.date}>
