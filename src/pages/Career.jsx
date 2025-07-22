@@ -6,7 +6,7 @@ import styles from './Career.module.css';
 const Career = () => {
   return (
     <>
-      <HeroBanner imageUrl={bannerImage} title="Career" />
+      <HeroBanner imageUrl={bannerImage} title="Career" subtitle="Become a part of our great team." />
 
       <div className={styles.container}>
         <p>Konten untuk halaman ini belum tersedia.</p>

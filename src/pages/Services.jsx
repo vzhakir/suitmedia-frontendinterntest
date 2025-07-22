@@ -6,7 +6,7 @@ import styles from './Services.module.css';
 const Services = () => {
   return (
     <>
-      <HeroBanner imageUrl={bannerImage} title="Services" />
+      <HeroBanner imageUrl={bannerImage} title="Services" subtitle="What we do to help you succeed." />
 
       <div className={styles.container}>
         <p>Konten untuk halaman ini belum tersedia.</p>

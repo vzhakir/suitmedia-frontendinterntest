@@ -6,7 +6,7 @@ import styles from './Work.module.css';
 const Work = () => {
   return (
     <>
-      <HeroBanner imageUrl={bannerImage} title="Work" />
+      <HeroBanner imageUrl={bannerImage} title="Work" subtitle="Great digital products, built with passion." />
 
       <div className={styles.container}>
         <p>Konten untuk halaman ini belum tersedia.</p>

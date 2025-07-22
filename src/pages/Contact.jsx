@@ -6,7 +6,7 @@ import styles from './Contact.module.css';
 const Contact = () => {
   return (
     <>
-      <HeroBanner imageUrl={bannerImage} title="Contact" />
+      <HeroBanner imageUrl={bannerImage} title="Contact" subtitle="Have a project in mind? Let's talk." />
 
       <div className={styles.container}>
         <p>Konten untuk halaman ini belum tersedia.</p>
