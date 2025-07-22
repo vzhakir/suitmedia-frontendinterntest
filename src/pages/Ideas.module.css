@@ -143,16 +143,15 @@ body {
   color: #999;
 }
 
-.card-title {
-  margin-top: 6px;
-  font-size: 0.9rem;
+.cardTitle {
+  margin-top: 8px;
+  font-size: 16px;
   font-weight: bold;
-  display: -webkit-box;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  height: 4em;
-  display: box;
   color: #333;
+  
+  /* Properti kunci untuk ellipsis multi-baris */
+  overflow: hidden;
+  display: -webkit-box;
 }
 
 .pagination {
