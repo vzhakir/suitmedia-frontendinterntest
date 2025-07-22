@@ -74,12 +74,14 @@ body {
   background: #fff;
   border-bottom: 1px solid #ddd;
   font-size: 14px;
+  color: #333;
 } /* ngubah biar bersebelahan */
 
 .filterControls {
   display: flex;
   gap: 24px;
   align-items: center;
+  color: #333;
 }
 
 .controls select {
@@ -88,6 +90,7 @@ body {
   border-radius: 20px;
   border: 1px solid #ccc;
   background-color: #fff;
+  color: #333;
 }
 
 .controls select:focus {
@@ -100,6 +103,7 @@ body {
   display: flex;
   gap: 24px;
   align-items: center;
+  color: #333;
 }
 
 #showingInfo {
