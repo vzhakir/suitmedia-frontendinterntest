@@ -152,6 +152,7 @@ body {
   text-overflow: ellipsis;
   height: 4em;
   display: box;
+  color: #333;
 }
 
 .pagination {
