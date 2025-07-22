@@ -10,7 +10,7 @@ const Footer = () => {
         <div className={styles.footerColumn}>
           <h4>Suitmedia</h4>
           <p>
-            Your trusted partner for digital transformation in Indonesia. We are a full-service agency specializing in technology and marketing solutions, including web design, mobile app development, and digital marketing.
+            Kami adalah mitra terpercaya Anda dalam mewujudkan transformasi digital di Indonesia. Sebagai agensi layanan penuh (full-service agency), kami mengkhususkan diri dalam menyediakan berbagai solusi berbasis teknologi dan pemasaran yang terintegrasi, mulai dari perancangan dan pengembangan situs web yang responsif, pembuatan aplikasi mobile yang inovatif, hingga strategi digital marketing yang efektif dan berorientasi pada hasil. Dengan pendekatan yang berfokus pada kebutuhan klien, kami berkomitmen untuk membantu bisnis dari berbagai skala dalam meningkatkan daya saing mereka di era digital yang terus berkembang.
           </p>
         </div>
 

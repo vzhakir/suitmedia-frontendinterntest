@@ -13,8 +13,8 @@ const Navbar = () => {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
       if (scrollTop > lastScrollTop.current) {
-        // setIsHidden(true);
-        // setIsTransparent(false);
+        setIsHidden(true);
+        setIsTransparent(false);
       } else {
         setIsHidden(false);
         if (scrollTop > 50) {
