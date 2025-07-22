@@ -1,0 +1,8 @@
+.footer {
+  text-align: center;
+  padding: 20px 60px;
+  background-color: #333;
+  color: white;
+  font-size: 14px;
+  margin-top: 40px; /* Memberi jarak dari konten di atasnya */
+}
