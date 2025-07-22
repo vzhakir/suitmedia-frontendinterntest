@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import HeroBanner from '../components/HeroBanner';
-import bannerImage from '../assets/banner.jpg'; // 1. Import gambar banner di sini
+import bannerImage from '../assets/banner.jpg';
 import styles from './Ideas.module.css';
 
 // Helper function untuk membuat rentang pagination
@@ -124,7 +124,7 @@ const Ideas = () => {
                     year: 'numeric', month: 'long', day: 'numeric'
                   })}
                 </span>
-                <h3 className={styles.carditle}>{post.title}</h3>
+                <h3 className={styles.cardTitle}>{post.title}</h3>
               </div>
             </div>
           ))}
