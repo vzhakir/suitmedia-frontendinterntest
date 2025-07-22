@@ -17,12 +17,12 @@ const Footer = () => {
         <div className={styles.footerColumn}>
           <h4>Engage with Us</h4>
           <div className={styles.socialIcons}>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
-            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer"><FaYoutube /></a>
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"><FaFacebookF /></a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"><FaTwitter /></a>
-            <a href="https://spotify.com" target="_blank" rel="noopener noreferrer"><FaSpotify /></a>
+            <a href="https://www.instagram.com/suitmedia/" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
+            <a href="https://www.linkedin.com/company/suitmedia/" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
+            <a href="https://www.youtube.com/@suitmedia" target="_blank" rel="noopener noreferrer"><FaYoutube /></a>
+            <a href="https://web.facebook.com/suitmedia" target="_blank" rel="noopener noreferrer"><FaFacebookF /></a>
+            <a href="https://x.com/suitmedia" target="_blank" rel="noopener noreferrer"><FaTwitter /></a>
+            <a href="https://open.spotify.com/show/7D2MQnYYeui5DsXzfWMLXF?si=BqHBhaqsQum_5pHm-fzYfQ&nd=1" target="_blank" rel="noopener noreferrer"><FaSpotify /></a>
           </div>
         </div>
       </div>
