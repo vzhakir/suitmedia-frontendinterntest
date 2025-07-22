@@ -2,11 +2,9 @@ import React, { useEffect, useRef } from 'react';
 import styles from './HeroBanner.module.css';
 
 const HeroBanner = ({ imageUrl, title, subtitle }) => {
-  // useRef untuk mendapatkan referensi ke elemen DOM
   const bgRef = useRef(null);
   const contentRef = useRef(null);
 
-  // useEffect untuk menambahkan event listener saat scroll
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.pageYOffset;
@@ -19,16 +17,13 @@ const HeroBanner = ({ imageUrl, title, subtitle }) => {
     };
 
     window.addEventListener('scroll', handleScroll);
-
-    // Cleanup: Hapus event listener saat komponen di-unmount
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []); // Array dependensi kosong agar useEffect hanya berjalan sekali
+  }, []);
 
   return (
     <section className={styles.heroBanner}>
-      {/* Gunakan ref dan inline style untuk background image dari prop */}
       <div 
         ref={bgRef} 
         className={styles.heroBg} 
@@ -37,7 +32,6 @@ const HeroBanner = ({ imageUrl, title, subtitle }) => {
 
       <div className={styles.heroOverlay}></div>
 
-      {/* Gunakan ref untuk konten dan props untuk teks dinamis */}
       <div ref={contentRef} className={styles.heroContent}>
         <h1>{title}</h1>
         {subtitle && <p>{subtitle}</p>}
@@ -46,7 +40,6 @@ const HeroBanner = ({ imageUrl, title, subtitle }) => {
   );
 };
 
-// Nilai default jika props tidak dikirim
 HeroBanner.defaultProps = {
   title: 'Suitmedia',
   subtitle: null,

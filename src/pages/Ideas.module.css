@@ -148,16 +148,16 @@ body {
 }
 
 .cardTitle {
-  margin-top: 6px;
-  font-size: 0.9rem;
+  margin-top: 8px;
+  font-size: 18px;
   font-weight: bold;
+  color: #333;
   display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
   overflow: hidden;
   text-overflow: ellipsis;
-  height: 4em;
-  display: box;
-  text-align: center;
-  color: #333;
 }
 
 .pagination {
@@ -212,4 +212,24 @@ body {
 .fallback-image .icon {
   font-size: 24px;
   margin-bottom: 4px;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 30px 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
 }

@@ -84,7 +84,11 @@ const Ideas = () => {
 
   return (
     <>
-      <HeroBanner imageUrl={bannerImage} /> {/* 2. Kirim prop imageUrl ke HeroBanner */}
+        <HeroBanner 
+            imageUrl={bannerImage} 
+            title="Ideas" 
+            subtitle="Where all our great things begin" 
+        />
       
       <div className={styles.controls}>
         {!loading && <div>Showing {posts.length} of many ideas</div>}
