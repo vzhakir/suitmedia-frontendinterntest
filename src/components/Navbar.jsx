@@ -43,8 +43,8 @@ const Navbar = () => {
         <NavLink to="/about" className={({ isActive }) => isActive ? styles.active : ''}>About</NavLink>
         <NavLink to="/services" className={({ isActive }) => isActive ? styles.active : ''}>Services</NavLink>
         <NavLink to="/" className={({ isActive }) => isActive ? styles.active : ''}>Ideas</NavLink>
-        <NavLink to="/career" className={({ isActive }) => isActive ? styles.active : ''}>Careers</NavLink>
-        <NavLink to="/contact" className={({ isActive }) => isActive ? styles.active : ''}>Contact</NavLink>
+        <NavLink to="/careers" className={({ isActive }) => isActive ? styles.active : ''}>Careers</NavLink>
+        <NavLink to="/contacts" className={({ isActive }) => isActive ? styles.active : ''}>Contact</NavLink>
       </div>
     </div>
   );

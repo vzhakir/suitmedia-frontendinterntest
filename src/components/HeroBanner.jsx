@@ -1,8 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import styles from './HeroBanner.module.css';
 
-// Komponen sekarang menerima prop 'imageUrl'
-const HeroBanner = ({ imageUrl }) => {
+const HeroBanner = ({ imageUrl, title, subtitle }) => {
   // useRef untuk mendapatkan referensi ke elemen DOM
   const bgRef = useRef(null);
   const contentRef = useRef(null);
@@ -11,19 +10,14 @@ const HeroBanner = ({ imageUrl }) => {
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.pageYOffset;
-
-      // Cek apakah elemen ada sebelum memanipulasi style
       if (bgRef.current) {
-        // Efek parallax untuk background image
         bgRef.current.style.backgroundPositionY = `${scrollY * 0.5}px`;
       }
       if (contentRef.current) {
-        // Efek parallax untuk teks konten
         contentRef.current.style.transform = `translateY(${scrollY * 0.2}px)`;
       }
     };
 
-    // Tambahkan event listener
     window.addEventListener('scroll', handleScroll);
 
     // Cleanup: Hapus event listener saat komponen di-unmount
@@ -39,18 +33,23 @@ const HeroBanner = ({ imageUrl }) => {
         ref={bgRef} 
         className={styles.heroBg} 
         style={{ backgroundImage: `url(${imageUrl})` }}
-      >
-      </div>
+      ></div>
 
       <div className={styles.heroOverlay}></div>
 
-      {/* Gunakan ref untuk konten */}
+      {/* Gunakan ref untuk konten dan props untuk teks dinamis */}
       <div ref={contentRef} className={styles.heroContent}>
-        <h1>Ideas</h1>
-        <p>Where all our great things begin</p>
+        <h1>{title}</h1>
+        {subtitle && <p>{subtitle}</p>}
       </div>
     </section>
   );
+};
+
+// Nilai default jika props tidak dikirim
+HeroBanner.defaultProps = {
+  title: 'Suitmedia',
+  subtitle: null,
 };
 
 export default HeroBanner;

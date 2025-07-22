@@ -1,13 +1,14 @@
 import React from 'react';
+import HeroBanner from '../components/HeroBanner';
+import bannerImage from '../assets/banner.jpg';
 import styles from './About.module.css';
 
 const About = () => {
   return (
     <>
-      <HeroBanner />
+      <HeroBanner imageUrl={bannerImage} title="About" />
 
       <div className={styles.container}>
-        <h2>About Us</h2>
         <p>Konten untuk halaman ini belum tersedia.</p>
       </div>
     </>
