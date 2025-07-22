@@ -152,6 +152,7 @@ body {
   text-overflow: ellipsis;
   height: 4em;
   display: box;
+  text-align: center;
   color: #333;
 }
 
@@ -164,19 +165,20 @@ body {
   margin: 0 4px;
   padding: 5px 10px;
   border: none;
-  background: #eee;
+  background: transparent;
   border-radius: 4px;
   cursor: pointer;
   font-size: 13px;
+  transition: background-color 0.3s ease; /* Tambahkan baris ini */
 }
 
 .pagination button.active {
-  background: #f60;
-  color: white;
+  background: #ddd;
+  color: rgb(0, 0, 0);
 }
 
 .pagination button:hover {
-  background: #ddd;
+  background: #f60;
 }
 
 .image-wrapper {
