@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   padding: 80px 20px;
-  min-height: 300px; /* Memberi tinggi minimal */
+  min-height: 300px;
   text-align: center;
   color: #666;
 }

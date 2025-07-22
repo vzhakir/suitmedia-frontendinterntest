@@ -1,17 +1,18 @@
 import React from 'react';
-import styles from './Work.module.css';
+import HeroBanner from '../components/HeroBanner';
+import styles from './Privacy.module.css';
 
-const Work = () => {
+const Privacy = () => {
   return (
     <>
       <HeroBanner />
 
       <div className={styles.container}>
-        <h2>Work</h2>
+        <h2>Privacy Policy</h2>
         <p>Konten untuk halaman ini belum tersedia.</p>
       </div>
     </>
   );
 };
 
-export default Work;
+export default Privacy;

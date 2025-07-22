@@ -28,7 +28,7 @@ const Footer = () => {
           <h4 style={{ visibility: 'hidden' }}>Links</h4> 
           <ul>
             <li><Link to="/services">Services</Link></li>
-            <li><Link to="/careers">Career</Link></li>
+            <li><Link to="/career">Career</Link></li>
             <li><Link to="/privacy">Privacy Policy</Link></li>
           </ul>
         </div>
