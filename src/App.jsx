@@ -21,27 +21,12 @@ function App() {
       <Navbar />
       <main>
         <Routes>
-          {/* Rute untuk halaman utama (Ideas) */}
           <Route path="/" element={<Ideas />} />
-          
-          {/* Rute untuk halaman Work */}
           <Route path="/work" element={<Work />} />
-
-          {/* Rute untuk halaman Work */}
           <Route path="/about" element={<About />} />
-
-          {/* Rute untuk halaman Work */}
           <Route path="/services" element={<Services />} />
-
-          {/* Rute untuk halaman Work */}
           <Route path="/career" element={<Career />} />
-
-          {/* Rute untuk halaman Work */}
           <Route path="/contact" element={<Contact />} />
-          
-          {/* Anda bisa menambahkan rute lain di sini untuk About, Services, dll. */}
-          {/* Contoh: <Route path="/about" element={<About />} /> */}
-
         </Routes>
       </main>
       <Footer />

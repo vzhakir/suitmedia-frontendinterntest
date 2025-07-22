@@ -75,7 +75,6 @@ const Ideas = () => {
           {posts.map(post => (
             <div key={post.id} className={styles.card}>
             <img 
-                // Ganti baris 'src' ini
                 src={`https://picsum.photos/seed/${post.id}/600/400`} 
                 alt={post.title} 
                 className={styles.cardImage}

@@ -6,8 +6,6 @@ import logo from '../assets/logo.png';
 const Navbar = () => {
   const [isTransparent, setIsTransparent] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
-  
-  // Menggunakan useRef untuk menyimpan nilai lastScrollTop agar tidak reset pada setiap render
   const lastScrollTop = React.useRef(0);
 
   useEffect(() => {
@@ -15,11 +13,9 @@ const Navbar = () => {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
       if (scrollTop > lastScrollTop.current) {
-        // Scroll ke bawah
         setIsHidden(true);
         setIsTransparent(false);
       } else {
-        // Scroll ke atas
         setIsHidden(false);
         if (scrollTop > 50) {
           setIsTransparent(true);
@@ -43,7 +39,6 @@ const Navbar = () => {
       </Link>
       
       <div className={styles.navLinks}>
-        {/* Menggunakan NavLink agar bisa mendeteksi halaman aktif secara otomatis */}
         <NavLink to="/work" className={({ isActive }) => isActive ? styles.active : ''}>Work</NavLink>
         <NavLink to="/about" className={({ isActive }) => isActive ? styles.active : ''}>About</NavLink>
         <NavLink to="/services" className={({ isActive }) => isActive ? styles.active : ''}>Services</NavLink>
