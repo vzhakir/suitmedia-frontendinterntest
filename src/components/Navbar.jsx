@@ -49,7 +49,7 @@ const Navbar = () => {
         <NavLink to="/services" onClick={toggleMenu} className={({ isActive }) => isActive ? styles.active : ''}>Services</NavLink>
         <NavLink to="/" onClick={toggleMenu} className={({ isActive }) => isActive ? styles.active : ''}>Ideas</NavLink>
         <NavLink to="/careers" onClick={toggleMenu} className={({ isActive }) => isActive ? styles.active : ''}>Careers</NavLink>
-        <NavLink to="/contact" onClick={toggleMenu} className={({ isActive }) => isActive ? styles.active : ''}>Contact</NavLink>
+        <NavLink to="/contacts" onClick={toggleMenu} className={({ isActive }) => isActive ? styles.active : ''}>Contact</NavLink>
       </div>
 
       <div className={styles.hamburger} onClick={toggleMenu}>
