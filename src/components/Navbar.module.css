@@ -59,3 +59,37 @@
 .navLinks a:hover {
   opacity: 0.8;
 }
+
+/* Tombol hamburger disembunyikan di desktop */
+.hamburger {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: white;
+}
+
+/* Media Query untuk Mobile */
+@media (max-width: 768px) {
+  .navLinks {
+    display: flex;
+    flex-direction: column; /* Ubah menjadi vertikal */
+    position: absolute;
+    top: 60px; /* Sesuaikan dengan tinggi navbar Anda */
+    left: -100%; /* Sembunyikan di luar layar */
+    width: 100%;
+    background-color: #f60; /* Warna background dropdown */
+    padding: 20px 0;
+    transition: left 0.3s ease;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .navLinks.navMenuOpen {
+    left: 0; /* Tampilkan menu saat aktif */
+  }
+
+  /* Tampilkan tombol hamburger di mobile */
+  .hamburger {
+    display: block;
+  }
+}
