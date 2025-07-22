@@ -124,7 +124,7 @@ const Ideas = () => {
                     year: 'numeric', month: 'long', day: 'numeric'
                   })}
                 </span>
-                <h3 className={styles.cardTitle}>{post.title}</h3>
+                <h3 className={styles.card-title}>{post.title}</h3>
               </div>
             </div>
           ))}
